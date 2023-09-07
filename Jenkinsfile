@@ -4,8 +4,8 @@ pipeline {
      }
     
     environment {
-        GIT_REPO_URL = 'https://github.com/prane12/devops'
-        MAVEN_TOOL = 'M3'
+        GIT_REPO_URL = 'https://github.com/siddhantbidari21/jenkins'
+        MAVEN_TOOL = 'Maven'
     }
     
     stages {
