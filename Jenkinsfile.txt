@@ -6,35 +6,30 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out the code from your Git repository
-                checkout scm
+               checkout scm
             }
         }
         
         stage('Build') {
             steps {
-                // Build the Maven project
-                sh 'mvn clean compile'
+               sh 'mvn clean compile'
             }
         }
         
         stage('Test') {
             steps {
-                // Run JUnit tests
-                sh 'mvn test'
+               sh 'mvn test'
             }
         }
         
         stage('Package') {
             steps {
-                // Package the application as a WAR file
-                sh 'mvn package'
+                 sh 'mvn package'
             }
         }
         
         stage('Deploy') {
             steps {
-                // Copy the WAR file to Tomcat's webapps directory
                 sh 'cp target/project-1.0-SNAPSHOT.war /var/lib/tomcat9/webapps/'
             }
         }
@@ -42,11 +37,9 @@ pipeline {
     
     post {
         success {
-            // Perform any actions if the build succeeds
             echo 'Build and deployment successful.'
         }
         failure {
-            // Perform any actions if the build fails
             echo 'Build or deployment failed.'
         }
     }
