@@ -1,46 +1,38 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
-    <modelVersion>4.0.0</modelVersion>
-    
-    <groupId>com.example</groupId>
-    <artifactId>project</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-    
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-         
-    <dependencies>
-        <!-- Add JUnit dependency for testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- Add dependencies for JavaServer Pages (JSP) and Servlets -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.3</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jasper</artifactId>
-            <version>9.0.31</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-</project>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Number Checker</title>
+    <script>
+        function isPrime() {
+            // Get the input value from the HTML form
+            var num = parseInt(document.getElementById("number").value);
+
+            // Check if the number is prime
+            if (num <= 1) {
+                document.getElementById("result").innerHTML = num + " is not a prime number.";
+            } else {
+                var isPrime = true;
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    document.getElementById("result").innerHTML = num + " is a prime number.";
+                } else {
+                    document.getElementById("result").innerHTML = num + " is not a prime number.";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Number Checker</h1>
+    <p>Enter a number below to check if it's prime:</p>
+    <input type="number" id="number">
+    <button onclick="isPrime()">Check</button>
+    <p id="result"></p>
+</body>
+</html>
+
